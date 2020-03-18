@@ -4,7 +4,10 @@ import argparse
 
 def find_max_profit(prices):
     max_profit = prices[1] - prices[0]
+
     prices.remove(prices[0])
+    # if current_profit > max_profit:
+    #             max_profit = current_profit
     # temp_prices = prices.copy()
     for i in range(len(prices)):
         # print(i)
