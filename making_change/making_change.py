@@ -3,9 +3,17 @@
 import sys
 
 def making_change(amount, denominations):
-  pass 
+  ways = [0] * (amount + 1)
+  ways[0] = 1
 
+  for coin in denominations:
+    for higher_amount in range(coin, amount+1):
+      remainder = higher_amount - coin
+      ways[higher_amount] += ways[remainder]
 
+  return ways[amount]
+
+print(making_change(7, [1,5,10,25,50]))
 if __name__ == "__main__":
   # Test our your implementation from the command line
   # with `python making_change.py [amount]` with different amounts
